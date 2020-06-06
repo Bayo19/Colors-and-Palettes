@@ -285,19 +285,6 @@
         }, 393)
     })
 
-    let randomKeyArray = function() {
-        let randomNumber = Array.from({ length: 5 }, function(a) {
-            a = Math.floor(Math.random() * 100)
-            return a
-        })
-        let randomLetter = Array.from({ length: 5 }, function(x) {
-            x = Math.floor(Math.random() * 26)
-            return String.fromCharCode(x + 65).toLowerCase()
-        })
-        return randomNumber.concat(randomLetter)
-    }
-
-    let randomKey = shuffle(randomKeyArray()).join('')
 
     let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
     localStorage.setItem('items', JSON.stringify(itemsArray))
@@ -307,7 +294,6 @@
         let colorArray = Array.from(paletteParent.children)
 
         let savedColors = [colorArray[0].outerText, colorArray[1].outerText, colorArray[2].outerText, colorArray[3].outerText, colorArray[4].outerText]
-
 
         itemsArray.push(savedColors)
         localStorage.setItem('items', JSON.stringify(itemsArray))

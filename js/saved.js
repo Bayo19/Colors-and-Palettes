@@ -1,6 +1,7 @@
 (function() {
 
         const palettes = JSON.parse(localStorage.getItem('items'))
+
         const root = document.querySelector('#saved-root')
 
         if (palettes.length > 0) {
@@ -16,7 +17,5 @@
                 </div>`
             }).join('')
         }`
-    }
-        
-    console.log(palettes)
+    }            
 })()
