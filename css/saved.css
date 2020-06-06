@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier Prime', monospace;
+    font-size: 100%;
+}
+
+.pageTitleSaved {
+    width: 100%;
+    text-align: center;
+    padding: 5% 0px;
+}
+
+.pageTitleSaved h1 {
+    font-size: 250%;
+    padding-bottom: 30px;
+}
+
+.pageTitleSaved h4 {
+    color: #777;
+}
+
+#saved-root {
+    padding: 0% 10%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+}
+
+.saved-palette {
+    display: flex;
+    height: 70px;
+}
+
+.saved-palette-child-one,
+.saved-palette-child-two,
+.saved-palette-child-three,
+.saved-palette-child-four,
+.saved-palette-child-five {
+    display: flex;
+    flex: 1;
+}

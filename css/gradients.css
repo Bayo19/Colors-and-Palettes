@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier Prime', monospace;
+    font-size: 100%;
+}
+
+.pageTitle {
+    width: 100%;
+    text-align: center;
+    padding: 5% 0px;
+}
+
+.pageTitle h1 {
+    font-size: 250%;
+    padding-bottom: 30px;
+}
+
+.pageTitle h4 {
+    color: #777;
+}
+
+#root {
+    padding: 0% 10%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+}
+
+.square {
+    height: 250px;
+    width: 250px;
+    border-radius: 4px;
+    display: flex;
+    position: relative;
+}
+
+.square-text {
+    bottom: 0;
+    right: 0;
+    padding: 12px;
+    margin: 15px;
+    position: absolute;
+    background: #222;
+    border-top-left-radius: 3px;
+    color: white;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+}

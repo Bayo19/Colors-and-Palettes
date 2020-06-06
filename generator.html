@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/generator.css">
+    <title>Gradient Generator</title>
+</head>
+
+<body>
+    <div class="pageTitle">
+        <h1>Gradient Generator</h1>
+        <h4>Create a random or custom gradient palette between two colors</h4>
+    </div>
+
+    <div class="boxes">
+        <div class="box allbox">
+            <p></p>
+        </div>
+        <div class="box5 allbox">
+            <p></p>
+        </div>
+        <div class="box3 allbox">
+            <p></p>
+        </div>
+        <div class="box7 allbox">
+            <p></p>
+        </div>
+        <div class="box4 allbox">
+            <p></p>
+        </div>
+        <div class="box6 allbox">
+            <p></p>
+        </div>
+
+        <div class="box2 allbox">
+            <p></p>
+        </div>
+    </div>
+    <div class="pallete-controls">
+        <div class="one">
+            <div class="pc-1">
+                <label for="start-color" id="start-label">START</label>
+                <input type="text" id="start-color" spellcheck="false">
+            </div>
+            <div class="pc-2">
+                <label for="end-color" id="end-label">END</label>
+                <input type="text" id="end-color" spellcheck="false">
+            </div>
+        </div>
+        <div class="two">
+            <input class='number-input' type="number" min="2" max="7">
+            <button class="btn">random</button>
+        </div>
+    </div>
+
+    <div class="gradient">
+        <div class="background-box">
+            <p class="gradient-text">Save</p>
+        </div>
+        <div class="css-info">
+            <p></p>
+
+        </div>
+    </div>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js"></script>
+    <script src="js/generator.js"></script>
+</body>
+
+</html>
