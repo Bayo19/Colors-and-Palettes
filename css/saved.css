@@ -40,4 +40,12 @@
 .saved-palette-child-five {
     display: flex;
     flex: 1;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
 }

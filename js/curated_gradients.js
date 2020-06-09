@@ -1,5 +1,6 @@
 (function() {
         let colors = [
+            'linear-gradient(to right top, #EE9C3C, #E57945, #D35A4E, #BA3E55, #9C2959, #781B58, #531352)',
             'linear-gradient(to left, rgb(36, 219, 221), rgb(37, 217, 229), rgb(46, 214, 236), rgb(58, 211, 243), rgb(72, 208, 248), rgb(87, 205, 251), rgb(101, 201, 254))',
             'linear-gradient(176deg, rgba(11,137,219,1) 16%, rgba(41,99,224,1) 46%, rgba(107,33,203,1) 74%)',
             'linear-gradient(5deg, rgba(255,192,203,1) 9%, rgba(255,146,214,1) 43%, rgba(169,124,252,1) 74%)',

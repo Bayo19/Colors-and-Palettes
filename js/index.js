@@ -57,7 +57,6 @@
 
         let res = `#${rr}${gg}${bb}`
         return res.toUpperCase()
-
     }
 
 

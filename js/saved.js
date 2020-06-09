@@ -1,5 +1,27 @@
 (function() {
 
+        function toHex(val) {
+            x = val.replace(/[a-z\(\)]/g, '').split(',').map(function(x) {
+                return Number(x)
+            })
+
+            let rr = x[0].toString(16)
+            if (rr.length < 2) {
+                rr = `0${rr}`
+            }
+            let gg = x[1].toString(16)
+            if (gg.length < 2) {
+                gg = `0${gg}`
+            }
+            let bb = x[2].toString(16)
+            if (bb.length < 2) {
+                bb = `0${bb}`
+            }
+
+            let res = `#${rr}${gg}${bb}`
+            return res.toUpperCase()
+        }
+
         const palettes = JSON.parse(localStorage.getItem('items'))
 
         const root = document.querySelector('#saved-root')
@@ -17,5 +39,32 @@
                 </div>`
             }).join('')
         }`
-    }            
+    }       
+    
+  
+    document.addEventListener('dblclick', function(e){
+
+        let res = e.target.style.backgroundColor.replace(/[a-z\(\)]/g, '').split(',')
+        let [r, g, b] = res
+        let hsp = Math.sqrt(
+            0.299 * (r * r) +
+            0.587 * (g * g) +
+            0.114 * (b * b)
+        )
+        if (hsp >= 128) {
+            e.target.style.color = 'black'
+        } else {
+        e.target.style.color = 'white'
+        }
+
+        if(e.target && e.target.className == 'saved-palette-child-one'|| e.target.className == 'saved-palette-child-two'|| e.target.className == 'saved-palette-child-three' || e.target.className == 'saved-palette-child-four' || e.target.className == 'saved-palette-child-five') {
+            console.log(e.target.style.backgroundColor)
+            navigator.clipboard.writeText(toHex(e.target.style.backgroundColor))
+            e.target.textContent = 'copied'
+            setTimeout(function() {
+                e.target.textContent = ''
+            }, 1200)
+        }
+    })
+
 })()
