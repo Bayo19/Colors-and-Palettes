@@ -186,34 +186,28 @@
     })
 
 
+
     // New random colors for each box when spacebar is pressed
+    const refreshColors = function(box) {
+
+        let r = Math.floor(Math.random() * 255)
+        let g = Math.floor(Math.random() * 255)
+        let b = Math.floor(Math.random() * 255)
+
+        fetch(`https://www.thecolorapi.com/id?rgb=${r},${g},${b}`)
+            .then(res => res.json())
+            .then(data => box.style.backgroundColor = data.rgb.value)
+    }
+
     document.body.onkeypress = function(e) {
         e.preventDefault()
         if (e.keyCode == 32) {
-            boxes.map(function(box) {
-
-                let r = Math.floor(Math.random() * 255)
-                let g = Math.floor(Math.random() * 255)
-                let b = Math.floor(Math.random() * 255)
-
-                fetch(`https://www.thecolorapi.com/id?rgb=${r},${g},${b}`)
-                    .then(res => res.json())
-                    .then(data => box.style.backgroundColor = data.rgb.value)
-            })
+            boxes.map(refresh)
         }
     }
     const newButton = document.querySelector('.new-colors-p')
     newButton.addEventListener('click', function() {
-        boxes.map(function(box) {
-
-            let r = Math.floor(Math.random() * 255)
-            let g = Math.floor(Math.random() * 255)
-            let b = Math.floor(Math.random() * 255)
-
-            fetch(`https://www.thecolorapi.com/id?rgb=${r},${g},${b}`)
-                .then(res => res.json())
-                .then(data => box.style.backgroundColor = data.rgb.value)
-        })
+        boxes.map(refreshColors)
 
     })
 
