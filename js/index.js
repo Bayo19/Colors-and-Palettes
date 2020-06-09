@@ -202,7 +202,7 @@
     document.body.onkeypress = function(e) {
         e.preventDefault()
         if (e.keyCode == 32) {
-            boxes.map(refresh)
+            boxes.map(refreshColors)
         }
     }
     const newButton = document.querySelector('.new-colors-p')
@@ -210,7 +210,6 @@
         boxes.map(refreshColors)
 
     })
-
 
     modalClose.addEventListener('click', function() {
         modalBg.classList.remove('bg-active')
