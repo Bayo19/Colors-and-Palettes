@@ -213,6 +213,8 @@
 
     modalClose.addEventListener('click', function() {
         modalBg.classList.remove('bg-active')
+        save.textContent = 'SAVE'
+        save.style.color = '#777'
     })
 
     const shuffle = function(arr) {
@@ -275,6 +277,8 @@
                 }
             }
         }, 393)
+        save.textContent = 'SAVE'
+        save.style.color = '#777'
     })
 
 
@@ -289,6 +293,8 @@
 
         itemsArray.push(savedColors)
         localStorage.setItem('items', JSON.stringify(itemsArray))
+        this.textContent = 'SAVED'
+        this.style.color = 'red'
 
     })
 
