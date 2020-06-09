@@ -213,8 +213,10 @@
 
     modalClose.addEventListener('click', function() {
         modalBg.classList.remove('bg-active')
-        save.textContent = 'SAVE'
-        save.style.color = '#777'
+        setTimeout(function() {
+            save.textContent = 'SAVE'
+            save.style.color = '#777'
+        }, 500)
     })
 
     const shuffle = function(arr) {
