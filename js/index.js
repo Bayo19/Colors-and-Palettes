@@ -27,15 +27,6 @@
     const generate = document.querySelector('.generate')
     const save = document.querySelector('.save')
 
-    // function to access colormind api
-    async function postData(url = '', data = {}) {
-
-        const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data)
-        })
-        return response.json()
-    }
 
     function toHex(val) {
         x = val.replace(/[a-z\(\)]/g, '').split(',').map(function(x) {
@@ -59,6 +50,90 @@
         return res.toUpperCase()
     }
 
+    // function to access colormind api
+    async function postData(url = '', data = {}) {
+
+        const response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        return response.json()
+    }
+
+
+    let modalFunction = function(col) {
+        let [red, green, blue] = col
+
+        fetch(`https://www.thecolorapi.com/id?rgb=${red},${green},${blue}`)
+            .then(res => res.json())
+            .then(data => (header.textContent = data.name.value,
+                header.style.color = data.rgb.value,
+                paragraph.style.color = data.rgb.value,
+                modalClose.style.color = 'white',
+                modalClose.style.backgroundColor = data.rgb.value,
+                textBox.style.border = `thick solid ${data.rgb.value}`,
+                rgbColor.textContent = data.rgb.value,
+                hexColor.textContent = data.hex.value.replace(/#/g, ''),
+                hslColor.textContent = data.hsl.value
+            ))
+
+        fetch(`https://www.thecolorapi.com/scheme?rgb=${red},${green},${blue}&mode=monochrome`)
+            .then(res => res.json())
+            .then(data => (
+                s1.style.backgroundColor = data.colors[0].rgb.value,
+                s1Text.textContent = data.colors[0].hex.value.replace(/#/g, ''),
+                data.colors[0].hsl.l < 40 ? s1Text.style.color = 'white' : s1Text.style.color = 'black',
+                s2.style.backgroundColor = data.colors[1].rgb.value,
+                s2Text.textContent = data.colors[1].hex.value.replace(/#/g, ''),
+                data.colors[1].hsl.l < 30 ? s2Text.style.color = 'white' : s2Text.style.color = 'black',
+                s3.style.backgroundColor = data.colors[2].rgb.value,
+                s3Text.textContent = data.colors[2].hex.value.replace(/#/g, ''),
+                data.colors[2].hsl.l < 30 ? s3Text.style.color = 'white' : s3Text.style.color = 'black',
+                s4.style.backgroundColor = data.colors[3].rgb.value,
+                s4Text.textContent = data.colors[3].hex.value.replace(/#/g, ''),
+                data.colors[3].hsl.l < 36 ? s4Text.style.color = 'white' : s4Text.style.color = 'black',
+                s5.style.backgroundColor = data.colors[4].rgb.value,
+                s5Text.textContent = data.colors[4].hex.value.replace(/#/g, ''),
+                data.colors[4].hsl.l < 30 ? s5Text.style.color = 'white' : s5Text.style.color = 'black'
+            ))
+
+        // random colormind schemes for each color
+        postData('http://colormind.io/api/', {
+                model: "default",
+                input: [
+                    [red, green, blue],
+                    "N", "N", "N", "N"
+                ],
+            })
+            .then(data => (a1.style.background = `rgb(${data.result[0][0]},${data.result[0][1]},${data.result[0][2]})`,
+                a1.children[0].textContent = toHex(getComputedStyle(a1).getPropertyValue('background-color')).replace(/#/g, ''),
+                a2.style.background = `rgb(${data.result[1][0]},${data.result[1][1]},${data.result[1][2]})`,
+                a2.children[0].textContent = toHex(getComputedStyle(a2).getPropertyValue('background-color')).replace(/#/g, ''),
+                a3.style.background = `rgb(${data.result[2][0]},${data.result[2][1]},${data.result[2][2]})`,
+                a3.children[0].textContent = toHex(getComputedStyle(a3).getPropertyValue('background-color')).replace(/#/g, ''),
+                a4.style.background = `rgb(${data.result[3][0]},${data.result[3][1]},${data.result[3][2]})`,
+                a4.children[0].textContent = toHex(getComputedStyle(a4).getPropertyValue('background-color')).replace(/#/g, ''),
+                a5.style.background = `rgb(${data.result[4][0]},${data.result[4][1]},${data.result[4][2]})`,
+                a5.children[0].textContent = toHex(getComputedStyle(a5).getPropertyValue('background-color')).replace(/#/g, '')
+            ))
+        modalBg.classList.add('bg-active')
+        setTimeout(function() {
+            for (x of sp) {
+                let res = getComputedStyle(x).getPropertyValue('background-color').replace(/[a-z\(\)]/g, '').split(',')
+                let [r, g, b] = res
+                let hsp = Math.sqrt(
+                    0.299 * (r * r) +
+                    0.587 * (g * g) +
+                    0.114 * (b * b)
+                )
+                if (hsp >= 128) {
+                    x.children[0].style.color = 'black'
+                } else {
+                    x.children[0].style.color = 'white'
+                }
+            }
+        }, 450)
+    }
 
     const boxes = Array.from(boxAction)
 
@@ -77,78 +152,8 @@
         box.addEventListener('click', function(e) {
 
                 let col = e.target.style['background-color'].replace(/[a-z\(\)]/g, '').split(',')
-                let [red, green, blue] = col
 
-
-                fetch(`https://www.thecolorapi.com/id?rgb=${red},${green},${blue}`)
-                    .then(res => res.json())
-                    .then(data => (header.textContent = data.name.value,
-                        header.style.color = data.rgb.value,
-                        paragraph.style.color = data.rgb.value,
-                        modalClose.style.color = 'white',
-                        modalClose.style.backgroundColor = data.rgb.value,
-                        textBox.style.border = `thick solid ${data.rgb.value}`,
-                        rgbColor.textContent = data.rgb.value,
-                        hexColor.textContent = data.hex.value.replace(/#/g, ''),
-                        hslColor.textContent = data.hsl.value
-                    ))
-
-                fetch(`https://www.thecolorapi.com/scheme?rgb=${red},${green},${blue}&mode=monochrome`)
-                    .then(res => res.json())
-                    .then(data => (
-                        s1.style.backgroundColor = data.colors[0].rgb.value,
-                        s1Text.textContent = data.colors[0].hex.value.replace(/#/g, ''),
-                        data.colors[0].hsl.l < 40 ? s1Text.style.color = 'white' : s1Text.style.color = 'black',
-                        s2.style.backgroundColor = data.colors[1].rgb.value,
-                        s2Text.textContent = data.colors[1].hex.value.replace(/#/g, ''),
-                        data.colors[1].hsl.l < 30 ? s2Text.style.color = 'white' : s2Text.style.color = 'black',
-                        s3.style.backgroundColor = data.colors[2].rgb.value,
-                        s3Text.textContent = data.colors[2].hex.value.replace(/#/g, ''),
-                        data.colors[2].hsl.l < 30 ? s3Text.style.color = 'white' : s3Text.style.color = 'black',
-                        s4.style.backgroundColor = data.colors[3].rgb.value,
-                        s4Text.textContent = data.colors[3].hex.value.replace(/#/g, ''),
-                        data.colors[3].hsl.l < 36 ? s4Text.style.color = 'white' : s4Text.style.color = 'black',
-                        s5.style.backgroundColor = data.colors[4].rgb.value,
-                        s5Text.textContent = data.colors[4].hex.value.replace(/#/g, ''),
-                        data.colors[4].hsl.l < 30 ? s5Text.style.color = 'white' : s5Text.style.color = 'black'
-                    ))
-
-                // random colormind schemes for each color
-                postData('http://colormind.io/api/', {
-                        model: "default",
-                        input: [
-                            [red, green, blue],
-                            "N", "N", "N", "N"
-                        ],
-                    })
-                    .then(data => (a1.style.background = `rgb(${data.result[0][0]},${data.result[0][1]},${data.result[0][2]})`,
-                        a1.children[0].textContent = toHex(getComputedStyle(a1).getPropertyValue('background-color')).replace(/#/g, ''),
-                        a2.style.background = `rgb(${data.result[1][0]},${data.result[1][1]},${data.result[1][2]})`,
-                        a2.children[0].textContent = toHex(getComputedStyle(a2).getPropertyValue('background-color')).replace(/#/g, ''),
-                        a3.style.background = `rgb(${data.result[2][0]},${data.result[2][1]},${data.result[2][2]})`,
-                        a3.children[0].textContent = toHex(getComputedStyle(a3).getPropertyValue('background-color')).replace(/#/g, ''),
-                        a4.style.background = `rgb(${data.result[3][0]},${data.result[3][1]},${data.result[3][2]})`,
-                        a4.children[0].textContent = toHex(getComputedStyle(a4).getPropertyValue('background-color')).replace(/#/g, ''),
-                        a5.style.background = `rgb(${data.result[4][0]},${data.result[4][1]},${data.result[4][2]})`,
-                        a5.children[0].textContent = toHex(getComputedStyle(a5).getPropertyValue('background-color')).replace(/#/g, '')
-                    ))
-                modalBg.classList.add('bg-active')
-                setTimeout(function() {
-                    for (x of sp) {
-                        let res = getComputedStyle(x).getPropertyValue('background-color').replace(/[a-z\(\)]/g, '').split(',')
-                        let [r, g, b] = res
-                        let hsp = Math.sqrt(
-                            0.299 * (r * r) +
-                            0.587 * (g * g) +
-                            0.114 * (b * b)
-                        )
-                        if (hsp >= 128) {
-                            x.children[0].style.color = 'black'
-                        } else {
-                            x.children[0].style.color = 'white'
-                        }
-                    }
-                }, 450)
+                modalFunction(col)
 
             }) // end of eventlistener function
 
@@ -186,8 +191,6 @@
     })
 
 
-
-    // New random colors for each box when spacebar is pressed
     const refreshColors = function(box) {
 
         let r = Math.floor(Math.random() * 255)
@@ -205,6 +208,7 @@
             boxes.map(refreshColors)
         }
     }
+
     const newButton = document.querySelector('.new-colors-p')
     newButton.addEventListener('click', function() {
         boxes.map(refreshColors)
@@ -240,7 +244,7 @@
 
     // new color scheme for each color everytime generate is clicked
     generate.addEventListener('click', function() {
-        let color = getComputedStyle(a1).getPropertyValue('background-color').replace(/[a-z\(\)]/g, '').split(',')
+        let color = generate.parentElement.parentElement.children[0].children[0].style.color.replace(/[a-z\(\)]/g, '').split(',')
         let [r, g, b] = color
         postData('http://colormind.io/api/', {
                 model: "default",
@@ -281,6 +285,7 @@
         }, 393)
         save.textContent = 'SAVE'
         save.style.color = '#777'
+
     })
 
 
@@ -299,5 +304,6 @@
         this.style.color = 'red'
 
     })
+
 
 })()
