@@ -78,7 +78,7 @@
             .then(data => (header.textContent = data.name.value,
                 header.style.color = data.rgb.value,
                 paragraph.style.color = data.rgb.value,
-                data.hsl.l < 40 ? modalClose.style.color = 'white' : modalClose.style.color = 'black',
+                data.hsl.l < 70 ? modalClose.style.color = 'white' : modalClose.style.color = 'black',
                 modalClose.style.backgroundColor = data.rgb.value,
                 textBox.style.border = `thick solid ${data.rgb.value}`,
                 rgbColor.textContent = data.rgb.value,

@@ -78,7 +78,7 @@
         }
     }
 
-    const changeColor = function() {
+    const setBoxTextColor = function() {
         for (x of allbox) {
             let res = getComputedStyle(x).getPropertyValue('background-color').replace(/[a-z\(\)]/g, '').split(',')
             let [r, g, b] = res
@@ -246,7 +246,7 @@
 
         setCSSInfo()
 
-        setTimeout(changeColor, 200)
+        setTimeout(setBoxTextColor, 200)
     })
 
     endColor.addEventListener('keyup', function() {
@@ -269,7 +269,7 @@
 
         setCSSInfo()
 
-        setTimeout(changeColor, 200)
+        setTimeout(setBoxTextColor, 200)
     })
 
 
