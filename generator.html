@@ -4,11 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="css/generator.css">
+    <link rel="stylesheet" type="text/css" href="css/nav-2.css">
     <title>Gradient Generator</title>
 </head>
 
 <body>
+    <nav>
+        <div class="navigation">
+            <div class="logo">
+                <p>Colors & Palettes</p>
+            </div>
+
+            <div class="more">
+                <p>...</p>
+            </div>
+        </div>
+        <div class="nav-links-remove">
+            <div class="links">
+                <ul>
+                    <li><a href="index.html">Colors</a></li>
+                    <li><a href="generator.html">Gradient Generator</a></li>
+                    <li><a href="gradients.html">Gradients</a></li>
+                    <li><a href="saved.html">My Palettes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="pageTitle">
         <h1>Gradient Generator</h1>
         <h4>Create a random or custom gradient palette between two colors</h4>
@@ -57,11 +81,10 @@
 
     <div class="gradient">
         <div class="background-box">
-            <p class="gradient-text">Save</p>
+
         </div>
         <div class="css-info">
-            <p></p>
-
+            <p id="css-p"></p>
         </div>
     </div>
     <script src="https://d3js.org/d3-color.v1.min.js"></script>

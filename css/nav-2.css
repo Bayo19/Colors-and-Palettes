@@ -26,28 +26,6 @@
     font-weight: bold;
 }
 
-.formdiv {
-    display: grid;
-    grid-column: 5 / 9;
-    justify-content: center;
-    align-items: center;
-}
-
-#form-for-search {
-    width: 100%;
-}
-
-#text-search {
-    height: 35px;
-    width: 250px;
-}
-
-input[type="text"] {
-    text-align: left;
-    outline: none;
-    padding: 0 5px;
-}
-
 .more {
     display: grid;
     grid-column: 11 / span 2;
@@ -107,12 +85,25 @@ input[type="text"] {
 }
 
 @media screen and (max-width:500px) {
-    #text-search {
-        height: 35px;
-        width: 200px;
+    .navigation {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        height: 60px;
+        background: #8DB46A;
+        box-sizing: border-box;
     }
     .logo {
-        display: none;
+        display: grid;
+        grid-column: 1/5;
+        justify-content: center;
+        align-items: center;
+    }
+    .more {
+        display: grid;
+        grid-column: 10 / span 3;
+        justify-content: center;
+        align-items: center;
     }
 }
 

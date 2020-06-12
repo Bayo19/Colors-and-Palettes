@@ -78,7 +78,7 @@
             .then(data => (header.textContent = data.name.value,
                 header.style.color = data.rgb.value,
                 paragraph.style.color = data.rgb.value,
-                modalClose.style.color = 'white',
+                data.hsl.l < 40 ? modalClose.style.color = 'white' : modalClose.style.color = 'black',
                 modalClose.style.backgroundColor = data.rgb.value,
                 textBox.style.border = `thick solid ${data.rgb.value}`,
                 rgbColor.textContent = data.rgb.value,
@@ -144,9 +144,9 @@
         }, 450)
     }
 
+    // -----------------------------------------
     const boxes = Array.from(boxAction)
 
-    // -----------------------------------------
     for (let box of boxes) {
 
         let r = Math.floor(Math.random() * 256)
@@ -210,7 +210,6 @@
             .then(res => res.json())
             .then(data => box.style.backgroundColor = data.rgb.value)
     }
-
 
     document.body.addEventListener('keypress', function(e) {
         if (e.keyCode == 32 && e.target == document.body) {
@@ -298,7 +297,7 @@
 
     })
 
-
+    // save palette
     let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
     localStorage.setItem('items', JSON.stringify(itemsArray))
 
@@ -315,6 +314,7 @@
 
     })
 
+    // toggle navigation
     let nav = document.querySelector('.more')
     let navLinks = document.querySelector('.nav-links-remove')
 
@@ -332,6 +332,7 @@
 
     nav.addEventListener('click', openClose)
 
+    // search for color
     const search = document.getElementById('form-for-search')
     const inputSearch = document.getElementById('text-search')
 
@@ -345,14 +346,10 @@
             newRGB = hex2RGB(inputSearch.value)
             col = newRGB.replace(/[a-z\(\)]/g, '').split(',')
             modalFunction(col)
-            console.log(col)
-
         } else {
             newRGB = inputSearch.value
             col = newRGB.replace(/[a-z\(\)]/g, '').split(',')
             modalFunction(col)
-            console.log(col)
-
         }
 
         e.preventDefault()
