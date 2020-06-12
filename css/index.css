@@ -3,11 +3,8 @@
     padding: 0;
     font-family: 'Courier Prime', monospace;
     -webkit-user-select: none;
-    /* Chrome/Safari */
     -moz-user-select: none;
-    /* Firefox */
     -ms-user-select: none;
-    /* IE10+ */
     box-sizing: border-box;
 }
 
@@ -119,16 +116,11 @@ body {
     align-items: center;
 }
 
-.s1-text,
-.s2-text,
-.s3-text,
-.s4-text,
-.s5-text,
-.s6-text,
-.s7-text,
-.s8-text,
-.s9-text,
-.s10-text {
+.s1-txt,
+.s2-txt,
+.s3-txt,
+.s4-txt,
+.s5-txt {
     font-size: 20px;
 }
 

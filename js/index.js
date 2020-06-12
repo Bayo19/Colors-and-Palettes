@@ -9,15 +9,15 @@
     const rgbColor = document.querySelector('.rgbcol')
     const hslColor = document.querySelector('.hslcol')
     const s1 = document.querySelector('.s1')
-    const s1Text = document.querySelector('.s1-text')
+    const s1Text = document.querySelector('.s1-txt')
     const s2 = document.querySelector('.s2')
-    const s2Text = document.querySelector('.s2-text')
+    const s2Text = document.querySelector('.s2-txt')
     const s3 = document.querySelector('.s3')
-    const s3Text = document.querySelector('.s3-text')
+    const s3Text = document.querySelector('.s3-txt')
     const s4 = document.querySelector('.s4')
-    const s4Text = document.querySelector('.s4-text')
+    const s4Text = document.querySelector('.s4-txt')
     const s5 = document.querySelector('.s5')
-    const s5Text = document.querySelector('.s5-text')
+    const s5Text = document.querySelector('.s5-txt')
     const a1 = document.querySelector('.a1')
     const a2 = document.querySelector('.a2')
     const a3 = document.querySelector('.a3')
@@ -27,6 +27,15 @@
     const generate = document.querySelector('.generate')
     const save = document.querySelector('.save')
 
+    const hex2RGB = function(hex) {
+        let r, g, b
+        let color = hex.replace(/#/g, '').split('')
+
+        r = parseInt(color.splice(0, 2).join(''), 16)
+        g = parseInt(color.splice(0, 2).join(''), 16)
+        b = parseInt(color.splice(0, 2).join(''), 16)
+        return `rgb(${r}, ${g}, ${b})`
+    }
 
     function toHex(val) {
         x = val.replace(/[a-z\(\)]/g, '').split(',').map(function(x) {
@@ -202,12 +211,13 @@
             .then(data => box.style.backgroundColor = data.rgb.value)
     }
 
-    document.body.onkeypress = function(e) {
-        e.preventDefault()
-        if (e.keyCode == 32) {
+
+    document.body.addEventListener('keypress', function(e) {
+        if (e.keyCode == 32 && e.target == document.body) {
+            e.preventDefault()
             boxes.map(refreshColors)
         }
-    }
+    })
 
     const newButton = document.querySelector('.new-colors-p')
     newButton.addEventListener('click', function() {
@@ -305,5 +315,48 @@
 
     })
 
+    let nav = document.querySelector('.more')
+    let navLinks = document.querySelector('.nav-links-remove')
 
-})()
+    const openClose = function() {
+
+        if (navLinks.classList.value == 'nav-links') {
+            navLinks.classList.remove('nav-links')
+            navLinks.classList.add('nav-links-remove')
+
+        } else if (navLinks.classList.value == 'nav-links-remove') {
+            navLinks.classList.remove('nav-links-remove')
+            navLinks.classList.add('nav-links')
+        }
+    }
+
+    nav.addEventListener('click', openClose)
+
+    const search = document.getElementById('form-for-search')
+    const inputSearch = document.getElementById('text-search')
+
+    search.addEventListener('submit', function(e) {
+
+        const hexValidate = /#[0-9A-Fa-f]{6}/g
+        const text = inputSearch.value
+        let newRGB
+        let col
+        if (hexValidate.test(text)) {
+            newRGB = hex2RGB(inputSearch.value)
+            col = newRGB.replace(/[a-z\(\)]/g, '').split(',')
+            modalFunction(col)
+            console.log(col)
+
+        } else {
+            newRGB = inputSearch.value
+            col = newRGB.replace(/[a-z\(\)]/g, '').split(',')
+            modalFunction(col)
+            console.log(col)
+
+        }
+
+        e.preventDefault()
+        e.stopImmediatePropagation()
+    })
+
+})();
