@@ -61,7 +61,6 @@
 
     // function to access colormind api
     async function postData(url = '', data = {}) {
-
         const response = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(data)
@@ -157,19 +156,13 @@
             .then(res => res.json())
             .then(data => box.style.backgroundColor = data.rgb.value)
 
-
         box.addEventListener('click', function(e) {
-
-                let col = e.target.style['background-color'].replace(/[a-z\(\)]/g, '').split(',')
-
-                modalFunction(col)
-
-            }) // end of eventlistener function
-
-    } // end of for statement
+            let col = e.target.style['background-color'].replace(/[a-z\(\)]/g, '').split(',')
+            modalFunction(col)
+        })
+    }
 
     const copytoClipboard = async function(e) {
-
         if (!navigator.clipboard) {
             return
         }
@@ -201,7 +194,6 @@
 
 
     const refreshColors = function(box) {
-
         let r = Math.floor(Math.random() * 255)
         let g = Math.floor(Math.random() * 255)
         let b = Math.floor(Math.random() * 255)
@@ -294,10 +286,9 @@
         }, 393)
         save.textContent = 'SAVE'
         save.style.color = '#777'
-
     })
 
-    // save palette
+    // 'save' palette
     let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
     localStorage.setItem('items', JSON.stringify(itemsArray))
 
@@ -329,15 +320,13 @@
             navLinks.classList.add('nav-links')
         }
     }
-
     nav.addEventListener('click', openClose)
 
     // search for color
     const search = document.getElementById('form-for-search')
     const inputSearch = document.getElementById('text-search')
 
-    search.addEventListener('submit', function(e) {
-
+    const searchColor = function(e) {
         const hexValidate = /#[0-9A-Fa-f]{6}/g
         const text = inputSearch.value
         let newRGB
@@ -354,6 +343,6 @@
 
         e.preventDefault()
         e.stopImmediatePropagation()
-    })
-
+    }
+    search.addEventListener('submit', searchColor)
 })();
