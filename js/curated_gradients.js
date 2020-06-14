@@ -9,6 +9,7 @@
             'linear-gradient(to right bottom, rgb(219, 103, 139), rgb(195, 82, 134), rgb(169, 63, 130), rgb(141, 46, 125), rgb(110, 32, 119), rgb(77, 23, 113), rgb(37, 16, 104))',
             'linear-gradient(110deg, rgb(232, 197, 60) 20%, rgb(228, 225, 38) 60%, rgb(211, 255, 17) 93%)',
             'linear-gradient(to bottom, rgb(44, 69, 146), rgb(61, 73, 151), rgb(76, 78, 156), rgb(89, 82, 161), rgb(102, 87, 166), rgb(115, 91, 171), rgb(127, 96, 175))',
+            'linear-gradient(to right top, #D89A80, #D98D75, #D9806B, #D97164, #D9625E, #D9505A, #D83C57)',
             'linear-gradient(130deg, rgb(132, 89, 223) 8%, rgb(170, 118, 223) 60%, rgb(199, 151, 224) 93%)',
             'linear-gradient(to right bottom, rgb(133, 123, 239), rgb(182, 112, 223), rgb(217, 102, 200), rgb(240, 97, 171), rgb(251, 100, 141), rgb(252, 113, 112), rgb(244, 130, 87))',
             'linear-gradient(to bottom, rgb(214, 114, 152), rgb(204, 115, 168), rgb(189, 119, 183), rgb(170, 124, 194), rgb(149, 129, 201), rgb(124, 134, 204), rgb(98, 138, 203))',
@@ -21,11 +22,28 @@
             'linear-gradient(to left bottom, rgb(218, 132, 158), rgb(232, 135, 150), rgb(244, 139, 140), rgb(253, 145, 128), rgb(255, 154, 114), rgb(255, 165, 100), rgb(255, 177, 86))',
             'linear-gradient(to right, rgb(216, 34, 153), rgb(223, 41, 154), rgb(229, 47, 155), rgb(236, 53, 156), rgb(242, 59, 156), rgb(249, 65, 157), rgb(255, 71, 158))',
             'linear-gradient(to bottom, rgb(240, 169, 177), rgb(231, 162, 187), rgb(216, 158, 197), rgb(197, 155, 206), rgb(172, 155, 210), rgb(144, 154, 210), rgb(114, 154, 205))',
-            'linear-gradient(to right top, #01FA8D, #00EBA5, #00DAB8, #00C8C4, #00B5C8, #00A2C4, #008FB8)'
+            'linear-gradient(to right top, #01FA8D, #00EBA5, #00DAB8, #00C8C4, #00B5C8, #00A2C4, #008FB8)',
+            'linear-gradient(to left, #81A1B2, #799FB1, #719DAF, #689AAD, #5F98AA, #5596A8, #4A94A5)'
         ]
 
         const root = document.getElementById('root')
         const h4 = document.getElementById('dynamic-h4')
+        const nav = document.querySelector('.more')
+        const navLinks = document.querySelector('.nav-links-remove')
+
+        const openClose = function() {
+
+            if (navLinks.classList.value == 'nav-links') {
+                navLinks.classList.remove('nav-links')
+                navLinks.classList.add('nav-links-remove')
+
+            } else if (navLinks.classList.value == 'nav-links-remove') {
+                navLinks.classList.remove('nav-links-remove')
+                navLinks.classList.add('nav-links')
+            }
+        }
+
+        nav.addEventListener('click', openClose)
 
         const copytoClipboard = function(e) {
 

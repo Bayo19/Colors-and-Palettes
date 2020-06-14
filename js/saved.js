@@ -1,5 +1,22 @@
 (function() {
 
+        const nav = document.querySelector('.more')
+        const navLinks = document.querySelector('.nav-links-remove')
+
+        const openClose = function() {
+
+            if (navLinks.classList.value == 'nav-links') {
+                navLinks.classList.remove('nav-links')
+                navLinks.classList.add('nav-links-remove')
+
+            } else if (navLinks.classList.value == 'nav-links-remove') {
+                navLinks.classList.remove('nav-links-remove')
+                navLinks.classList.add('nav-links')
+            }
+        }
+
+        nav.addEventListener('click', openClose)
+
         function toHex(val) {
             x = val.replace(/[a-z\(\)]/g, '').split(',').map(function(x) {
                 return Number(x)

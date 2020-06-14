@@ -15,6 +15,7 @@
     const cssInfo = document.querySelector('.css-info')
     const nav = document.querySelector('.more')
     const navLinks = document.querySelector('.nav-links-remove')
+    const parentBox = document.querySelector('.boxes')
 
     const openClose = function() {
 
@@ -29,7 +30,6 @@
     }
 
     nav.addEventListener('click', openClose)
-    const directions = ['to right', 'to right bottom', 'to left', 'to left bottom', 'to right top']
 
     const toHex = function(val) {
         x = val.replace(/[a-z\(\)]/g, '').split(',').map(function(x) {
@@ -123,13 +123,15 @@
 
     const setCSSInfo = function() {
         let first, second, third, fourth, fifth, sixth, seventh
-        first = toHex(getComputedStyle(box).getPropertyValue('background-color'))
-        second = toHex(getComputedStyle(box5).getPropertyValue('background-color'))
-        third = toHex(getComputedStyle(box3).getPropertyValue('background-color'))
-        fourth = toHex(getComputedStyle(box7).getPropertyValue('background-color'))
-        fifth = toHex(getComputedStyle(box4).getPropertyValue('background-color'))
-        sixth = toHex(getComputedStyle(box6).getPropertyValue('background-color'))
-        seventh = toHex(getComputedStyle(box2).getPropertyValue('background-color'))
+        first = toHex(getComputedStyle(parentBox.children[0]).getPropertyValue('background-color'))
+        second = toHex(getComputedStyle(parentBox.children[1]).getPropertyValue('background-color'))
+        third = toHex(getComputedStyle(parentBox.children[2]).getPropertyValue('background-color'))
+        fourth = toHex(getComputedStyle(parentBox.children[3]).getPropertyValue('background-color'))
+        fifth = toHex(getComputedStyle(parentBox.children[4]).getPropertyValue('background-color'))
+        sixth = toHex(getComputedStyle(parentBox.children[5]).getPropertyValue('background-color'))
+        seventh = toHex(getComputedStyle(parentBox.children[6]).getPropertyValue('background-color'))
+
+        const directions = ['to right', 'to right bottom', 'to left', 'to left bottom', 'to right top']
 
         let direction = directions[Math.floor(Math.random() * directions.length)]
         backgroundBox.style.background = `linear-gradient(${direction}, ${first}, ${second}, ${third}, ${fourth}, ${fifth}, ${sixth}, ${seventh})`
