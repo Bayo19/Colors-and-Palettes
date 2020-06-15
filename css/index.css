@@ -240,17 +240,6 @@
                                 transition: .10s;
                             }
                             
-                            @media screen and (max-width: 990px) {
-                                .modal {
-                                    /* position: relative; */
-                                    display: flex;
-                                    flex-direction: row;
-                                    height: 60%;
-                                    width: 80%;
-                                    background: #fff;
-                                }
-                            }
-                            
                             @media screen and (max-width: 500px) {
                                 .boxes {
                                     padding: 10% 15% 5% 15%;
@@ -310,13 +299,27 @@
                                 }
                             }
                             
-                            @media screen and (max-width: 3250px) {
+                            @media screen and (max-width: 320px) {
                                 .modal {
                                     /* position: relative; */
                                     display: flex;
                                     flex-direction: row;
-                                    height: 80%;
+                                    height: 85%;
                                     width: 100%;
                                     background: #fff;
+                                }
+                            }
+                            
+                            @media screen and (max-width: 900px) {
+                                .modal {
+                                    /* position: relative; */
+                                    display: flex;
+                                    flex-direction: row;
+                                    height: 60%;
+                                    width: 80%;
+                                    background: #fff;
+                                }
+                                .colors {
+                                    display: none;
                                 }
                             }
