@@ -26,16 +26,14 @@ body {
 }
 
 .allbox {
+    display: flex;
     height: 260px;
     flex: auto;
     align-items: center;
     padding: 0.5%;
     -webkit-user-select: none;
-    /* Chrome/Safari */
     -moz-user-select: none;
-    /* Firefox */
     -ms-user-select: none;
-    /* IE10+ */
 }
 
 .allbox p {
@@ -43,40 +41,12 @@ body {
     width: 80%;
 }
 
-.box {
-    background-color: #eee;
-    display: flex;
-}
-
-.box2 {
-    display: flex;
-}
-
-.box3 {
-    display: flex;
-}
-
-.box4 {
-    display: flex;
-}
-
-.box5 {
-    display: flex;
-}
-
-.box6 {
-    display: flex;
-}
-
-.box7 {
-    display: flex;
-}
-
 .boxes {
     display: flex;
     justify-content: center;
     width: 80%;
     padding: 0% 10% 0% 10%;
+    overflow: hidden;
 }
 
 p {
@@ -154,12 +124,20 @@ p {
     outline: none
 }
 
-.gradient {
+
+/* .gradient {
     display: flex;
     flex-direction: row;
     height: 110px;
     width: 80%;
     padding: 5% 10%;
+} */
+
+.gradient {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    padding: 5% 10% 0 10%;
 }
 
 .background-box {
@@ -169,25 +147,6 @@ p {
     margin: 0 20px;
     display: flex;
     position: relative;
-}
-
-.gradient-text {
-    bottom: 0;
-    right: 0;
-    padding: 12px;
-    margin: 15px;
-    position: absolute;
-    background: #222;
-    border-top-left-radius: 3px;
-    color: white;
-    -webkit-user-select: none;
-    /* Chrome/Safari */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* IE10+ */
-    text-align: end;
-    width: 40px;
 }
 
 .css-info {

@@ -21,11 +21,31 @@
 }
 
 #saved-root {
-    padding: 0% 10%;
+    padding: 0% 10% 5% 10%;
     width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
+}
+
+@media screen and (max-width: 1000px) {
+    #saved-root {
+        padding: 0% 10% 5% 10%;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #saved-root {
+        padding: 10% 10% 5% 10%;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 40px;
+    }
 }
 
 .saved-palette {

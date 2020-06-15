@@ -112,7 +112,7 @@
             return Math.random() * (max - min) + min;
         }
 
-        return tinycolor(`rgb(${Math.floor(z['_r'])}, ${Math.floor(z['_g'])}, ${Math.floor(z['_b'])})`).darken(13).saturate(14).spin(getRandomSpin(-65, 65)).toString()
+        return tinycolor(`rgb(${Math.floor(z['_r'])}, ${Math.floor(z['_g'])}, ${Math.floor(z['_b'])})`).darken(10).saturate(14).spin(getRandomSpin(-65, 65)).toString()
 
     }
 
@@ -232,7 +232,7 @@
         let c = getComputedStyle(box2).getPropertyValue('background-color')
         let interpolate = d3.quantize(d3.interpolateHcl(this.value, c), 7)
         box.style.backgroundColor = this.value
-        box.children[0].textContent = this.value
+        box.children[0].textContent = this.value.replace(/#/g, '')
         box2.style.backgroundColor = interpolate[6]
         box3.style.backgroundColor = interpolate[2]
         box4.style.backgroundColor = interpolate[4]
@@ -255,7 +255,7 @@
         let a = getComputedStyle(box).getPropertyValue('background-color')
         let interpolate = d3.quantize(d3.interpolateHcl(a, this.value), 7)
         box2.style.backgroundColor = this.value
-        box2.children[0].textContent = this.value
+        box2.children[0].textContent = this.value.replace(/#/g, '')
         box.style.backgroundColor = interpolate[0]
         box3.style.backgroundColor = interpolate[2]
         box4.style.backgroundColor = interpolate[4]

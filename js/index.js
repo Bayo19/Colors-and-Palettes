@@ -26,6 +26,8 @@
     const sp = document.querySelectorAll('.sp')
     const generate = document.querySelector('.generate')
     const save = document.querySelector('.save')
+    const boxesss = document.querySelector('.boxes')
+    console.log(boxesss.children)
 
     const hex2RGB = function(hex) {
         let r, g, b
