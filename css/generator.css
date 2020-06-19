@@ -71,10 +71,35 @@ p {
     flex-direction: column;
 }
 
-.one {
+.gradient {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5%;
+    width: 100%;
+}
+
+.two {
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-bottom: 50px;
+}
+
+@media screen and (min-width: 960px) {
+    .one {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .gradient {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+        padding: 5% 10% 5% 10%;
+    }
+    .two {
+        margin: 0;
+    }
 }
 
 .pc-1,
@@ -83,12 +108,6 @@ p {
     flex-direction: column;
     flex: 1;
     margin: 40px;
-}
-
-.two {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
 }
 
 .number-input::selection {
@@ -129,22 +148,6 @@ p {
 #start-color,
 #end-color {
     outline: none
-}
-
-
-/* .gradient {
-    display: flex;
-    flex-direction: row;
-    height: 110px;
-    width: 80%;
-    padding: 5% 10%;
-} */
-
-.gradient {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 80%;
-    padding: 5% 10% 5% 10%;
 }
 
 .background-box {
