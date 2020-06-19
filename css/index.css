@@ -1,325 +1,338 @@
-                            * {
-                                margin: 0;
-                                padding: 0;
-                                font-family: 'Courier Prime', monospace;
-                                -webkit-user-select: none;
-                                -moz-user-select: none;
-                                -ms-user-select: none;
-                                box-sizing: border-box;
-                            }
-                            
-                            body {
-                                background: #f6f6f6;
-                            }
-                            
-                            .box {
-                                width: 90px;
-                                height: 60px;
-                                margin: 0;
-                            }
-                            
-                            .pageTitle {
-                                width: 100%;
-                                text-align: center;
-                                padding: 5% 0px;
-                            }
-                            
-                            .pageTitle h1 {
-                                font-size: 250%;
-                                padding-bottom: 30px;
-                            }
-                            
-                            .pageTitle h4 {
-                                color: #777;
-                            }
-                            
-                            .boxes {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                                max-width: 100%;
-                                column-gap: 20px;
-                                padding: 0% 10% 0% 10%;
-                            }
-                            /* MODAL STYLES */
-                            
-                            .modal-bg {
-                                position: fixed;
-                                top: 0;
-                                left: 0;
-                                width: 100%;
-                                height: 100vh;
-                                background-color: rgba(0, 0, 0, 0.4);
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                visibility: hidden;
-                                opacity: 0;
-                                transition: visibility 0s, opacity 0.5s;
-                                transition-delay: 0.47s;
-                                z-index: 1100;
-                            }
-                            
-                            .mc-btn {
-                                padding: 5px 10px;
-                            }
-                            
-                            .bg-active {
-                                visibility: visible;
-                                opacity: 1;
-                            }
-                            
-                            .modal {
-                                position: relative;
-                                background-color: #fff;
-                                width: 80%;
-                                height: 61.5%;
-                                display: grid;
-                                grid-template-columns: repeat(2, 1fr);
-                                grid-gap: 15px;
-                            }
-                            
-                            .text {
-                                display: flex;
-                                flex-direction: column;
-                                padding: 6% 6% 0px 6%;
-                            }
-                            
-                            .title {
-                                text-align: center;
-                            }
-                            
-                            .options {
-                                display: flex;
-                                width: 100%;
-                                justify-content: center;
-                            }
-                            
-                            .generate,
-                            .save {
-                                font-weight: 700;
-                                color: #777;
-                                padding: 5px;
-                                margin-top: 15px;
-                                flex: auto;
-                                text-align: center;
-                            }
-                            
-                            .s1,
-                            .s2,
-                            .s3,
-                            .s4,
-                            .s5 {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                            }
-                            
-                            .s1-txt,
-                            .s2-txt,
-                            .s3-txt,
-                            .s4-txt,
-                            .s5-txt {
-                                font-size: 20px;
-                            }
-                            
-                            .p-graph {
-                                padding-bottom: 20px;
-                            }
-                            
-                            .header {
-                                padding-bottom: 20px;
-                                font-size: 25px;
-                            }
-                            
-                            .paragraph {
-                                text-align: start;
-                                font-family: 'Source Sans Pro', sans-serif;
-                                font-size: 25px;
-                            }
-                            
-                            .hexcol,
-                            .rgbcol,
-                            .hslcol {
-                                padding: 7px 0;
-                                font-size: 95%;
-                            }
-                            
-                            .scheme-title {
-                                text-align: center;
-                            }
-                            
-                            .colors {
-                                display: grid;
-                                grid-template-columns: repeat(1, 1fr);
-                                grid-gap: 10px;
-                                padding: 10%;
-                            }
-                            
-                            .light-text,
-                            .dark-text,
-                            .light-rgb,
-                            .dark-rgb {
-                                text-align: center;
-                                padding: 5px;
-                                text-transform: uppercase;
-                            }
-                            
-                            .modal-close {
-                                position: absolute;
-                                top: 10px;
-                                right: 10px;
-                                font-weight: bold;
-                                font-size: 20px;
-                                border-radius: 3px;
-                                opacity: 0.8;
-                            }
-                            
-                            .scheme-pallete {
-                                display: flex;
-                                justify-content: center;
-                                height: 70px;
-                                margin-top: 25px;
-                            }
-                            
-                            .a1 {
-                                display: flex;
-                                flex: 1;
-                            }
-                            
-                            .a2 {
-                                display: flex;
-                                flex: 1;
-                            }
-                            
-                            .a3 {
-                                display: flex;
-                                flex: 1;
-                            }
-                            
-                            .a4 {
-                                display: flex;
-                                flex: 1;
-                            }
-                            
-                            .a5 {
-                                display: flex;
-                                flex: 1;
-                            }
-                            
-                            .a1,
-                            .a2,
-                            .a3,
-                            .a4,
-                            .a5 {
-                                justify-content: center;
-                                align-items: center;
-                                text-align: center;
-                            }
-                            
-                            .new-colors {
-                                width: 100%;
-                                text-align: center;
-                                padding: 3% 0px;
-                                display: flex;
-                                justify-content: center;
-                            }
-                            
-                            .new-colors p {
-                                background: linear-gradient(to left top, rgb(219, 103, 139), rgb(195, 82, 134), rgb(169, 63, 130), rgb(141, 46, 125), rgb(110, 32, 119), rgb(77, 23, 113), rgb(37, 16, 104));
-                                width: 20%;
-                                padding: 15px 0;
-                                color: white;
-                                text-transform: uppercase;
-                                box-shadow: 0 2px 2px rgba(41, 47, 56, .1), 0 4px 4px rgba(41, 47, 56, .1), 0 8px 8px rgba(41, 47, 56, .1), 0 16px 16px rgba(41, 47, 56, .1), 0 32px 32px rgba(41, 47, 56, .1);
-                                border-radius: 4px;
-                            }
-                            
-                            .new-colors-p:active {
-                                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
-                                transform: translateY(3px);
-                                transition: .10s;
-                            }
-                            
-                            @media screen and (max-width: 500px) {
-                                .boxes {
-                                    padding: 10% 15% 5% 15%;
-                                    width: 70%;
-                                    display: grid;
-                                    grid-template-columns: repeat(3, 1fr);
-                                    grid-gap: 40px;
-                                }
-                                .modal {
-                                    /* position: relative; */
-                                    display: flex;
-                                    flex-direction: row;
-                                    height: 80%;
-                                    width: 90%;
-                                    background: #fff;
-                                }
-                                .text {
-                                    display: flex;
-                                    flex: auto;
-                                    flex-direction: column;
-                                    padding: 6% 6% 0px 6%;
-                                }
-                                .colors {
-                                    display: none;
-                                }
-                            }
-                            
-                            @media screen and (max-width: 414px) {
-                                .boxes {
-                                    padding: 10% 5% 5% 5%;
-                                    width: 100%;
-                                    display: grid;
-                                    grid-template-columns: repeat(3, 1fr);
-                                    /* grid-gap: 40px; */
-                                }
-                            }
-                            
-                            @media screen and (max-width: 360px) {
-                                .boxes {
-                                    padding: 10% 17.5% 5% 17.5%;
-                                    width: 75%;
-                                    display: grid;
-                                    grid-template-columns: repeat(2, 1fr);
-                                    /* grid-gap: 40px; */
-                                }
-                            }
-                            
-                            @media screen and (max-width: 375px) {
-                                .pageTitle {
-                                    width: 100%;
-                                    text-align: center;
-                                    padding: 5% 20px;
-                                }
-                                .pageTitle h1 {
-                                    font-size: 230%;
-                                    padding-bottom: 30px;
-                                }
-                            }
-                            
-                            @media screen and (max-width: 320px) {
-                                .modal {
-                                    /* position: relative; */
-                                    display: flex;
-                                    flex-direction: row;
-                                    height: 85%;
-                                    width: 100%;
-                                    background: #fff;
-                                }
-                            }
-                            
-                            @media screen and (max-width: 900px) {
-                                .modal {
-                                    /* position: relative; */
-                                    display: flex;
-                                    flex-direction: row;
-                                    height: 60%;
-                                    width: 80%;
-                                    background: #fff;
-                                }
-                                .colors {
-                                    display: none;
-                                }
-                            }
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier Prime', monospace;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6f6;
+}
+
+.box {
+    width: 90px;
+    height: 60px;
+    margin: 0;
+}
+
+.pageTitle {
+    width: 100%;
+    text-align: center;
+    padding: 5% 0px;
+}
+
+.pageTitle h1 {
+    font-size: 250%;
+    padding-bottom: 30px;
+}
+
+.pageTitle h4 {
+    color: #777;
+}
+
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    max-width: 100%;
+    column-gap: 20px;
+    padding: 0% 10% 0% 10%;
+}
+
+
+/* MODAL STYLES */
+
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+    transition-delay: 0.47s;
+    z-index: 1100;
+}
+
+.mc-btn {
+    padding: 5px 10px;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    position: relative;
+    background-color: #fff;
+    width: 80%;
+    height: 61.5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    padding: 6% 6% 0px 6%;
+}
+
+.title {
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.generate,
+.save {
+    font-weight: 700;
+    color: #777;
+    padding: 5px;
+    margin-top: 15px;
+    flex: auto;
+    text-align: center;
+}
+
+.s1,
+.s2,
+.s3,
+.s4,
+.s5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.s1-txt,
+.s2-txt,
+.s3-txt,
+.s4-txt,
+.s5-txt {
+    font-size: 20px;
+}
+
+.p-graph {
+    padding-bottom: 20px;
+}
+
+.header {
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+
+.paragraph {
+    text-align: start;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 25px;
+}
+
+.hexcol,
+.rgbcol,
+.hslcol {
+    padding: 7px 0;
+    font-size: 95%;
+}
+
+.scheme-title {
+    text-align: center;
+}
+
+.colors {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    padding: 10%;
+}
+
+.light-text,
+.dark-text,
+.light-rgb,
+.dark-rgb {
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+.scheme-pallete {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    margin-top: 25px;
+}
+
+.a1 {
+    display: flex;
+    flex: 1;
+}
+
+.a2 {
+    display: flex;
+    flex: 1;
+}
+
+.a3 {
+    display: flex;
+    flex: 1;
+}
+
+.a4 {
+    display: flex;
+    flex: 1;
+}
+
+.a5 {
+    display: flex;
+    flex: 1;
+}
+
+.a1,
+.a2,
+.a3,
+.a4,
+.a5 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.new-colors {
+    width: 100%;
+    text-align: center;
+    padding: 3% 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.new-colors p {
+    background: linear-gradient(to left top, rgb(219, 103, 139), rgb(195, 82, 134), rgb(169, 63, 130), rgb(141, 46, 125), rgb(110, 32, 119), rgb(77, 23, 113), rgb(37, 16, 104));
+    width: 20%;
+    padding: 15px 0;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px rgba(41, 47, 56, .1), 0 4px 4px rgba(41, 47, 56, .1), 0 8px 8px rgba(41, 47, 56, .1), 0 16px 16px rgba(41, 47, 56, .1), 0 32px 32px rgba(41, 47, 56, .1);
+    border-radius: 4px;
+}
+
+.new-colors-p:active {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+    transform: translateY(3px);
+    transition: .10s;
+}
+
+@media screen and (max-width: 900px) {
+    .modal {
+        /* position: relative; */
+        display: flex;
+        flex-direction: row;
+        height: 64%;
+        width: 80%;
+        background: #fff;
+    }
+    .colors {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .boxes {
+        padding: 10% 15% 5% 15%;
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+    }
+    .modal {
+        /* position: relative; */
+        display: flex;
+        flex-direction: row;
+        height: 75%;
+        width: 95%;
+        background: #fff;
+    }
+    .text {
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        padding: 6% 6% 0px 6%;
+    }
+    .colors {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .boxes {
+        padding: 10% 5% 5% 5%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* grid-gap: 40px; */
+    }
+    .modal {
+        /* position: relative; */
+        display: flex;
+        flex-direction: row;
+        height: 65%;
+        width: 100%;
+        background: #fff;
+    }
+}
+
+@media screen and (max-width: 361px) {
+    .boxes {
+        padding: 10% 17.5% 5% 17.5%;
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-gap: 40px; */
+    }
+    .modal {
+        /* position: relative; */
+        display: flex;
+        flex-direction: row;
+        height: 85%;
+        width: 100%;
+        background: #fff;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .modal {
+        /* position: relative; */
+        display: flex;
+        flex-direction: row;
+        height: 85%;
+        width: 100%;
+        background: #fff;
+    }
+    .boxes {
+        padding: 10% 5% 5% 10%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-gap: 40px; */
+    }
+}

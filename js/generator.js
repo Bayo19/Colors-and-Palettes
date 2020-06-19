@@ -8,6 +8,7 @@
     let box7 = document.querySelector('.box7')
     let randombtn = document.querySelector('.btn')
     let allbox = document.querySelectorAll('.allbox')
+    let allboxp = document.querySelectorAll('.allbox p')
     let numberInput = document.querySelector('.number-input')
     const startColor = document.querySelector('#start-color')
     const endColor = document.querySelector('#end-color')
@@ -275,8 +276,13 @@
     })
 
 
-    for (x of allbox) {
-        x.addEventListener('dblclick', copytoClipboard)
+    if (window.matchMedia("(max-width: 700px)").matches) {
+
+    }
+    for (x of allboxp) {
+        if (window.matchMedia("(min-width: 769px)").matches) {
+            x.addEventListener('dblclick', copytoClipboard)
+        }
     }
 
     // switching html divs around for illusion of variety/randomness in colors for gradient

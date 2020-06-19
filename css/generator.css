@@ -28,12 +28,19 @@ body {
 .allbox {
     display: flex;
     height: 260px;
+    min-width: 14%;
     flex: auto;
     align-items: center;
     padding: 0.5%;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+    .allbox p {
+        display: none;
+    }
 }
 
 .allbox p {
@@ -137,7 +144,7 @@ p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 80%;
-    padding: 5% 10% 0 10%;
+    padding: 5% 10% 5% 10%;
 }
 
 .background-box {
