@@ -300,7 +300,11 @@
 
         let savedColors = [colorArray[0].outerText, colorArray[1].outerText, colorArray[2].outerText, colorArray[3].outerText, colorArray[4].outerText]
 
-        itemsArray.push(savedColors)
+        if (itemsArray.some(function(el) { return JSON.stringify(el) == JSON.stringify(savedColors) })) {
+            return
+        } else {
+            itemsArray.push(savedColors)
+        }
         localStorage.setItem('items', JSON.stringify(itemsArray))
         this.textContent = 'SAVED'
         this.style.color = 'red'
