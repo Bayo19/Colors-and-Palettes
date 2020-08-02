@@ -296,6 +296,7 @@
 
     save.addEventListener('click', function() {
         const paletteParent = document.querySelector('.scheme-pallete')
+
         let colorArray = Array.from(paletteParent.children)
 
         let savedColors = [colorArray[0].outerText, colorArray[1].outerText, colorArray[2].outerText, colorArray[3].outerText, colorArray[4].outerText]
@@ -305,6 +306,7 @@
         } else {
             itemsArray.push(savedColors)
         }
+
         localStorage.setItem('items', JSON.stringify(itemsArray))
         this.textContent = 'SAVED'
         this.style.color = 'red'
