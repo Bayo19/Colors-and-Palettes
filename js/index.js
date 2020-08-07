@@ -267,7 +267,6 @@
                 a5.style.background = `rgb(${data.result[4][0]},${data.result[4][1]},${data.result[4][2]})`,
                 a5.children[0].textContent = toHex(getComputedStyle(a5).getPropertyValue('background-color')).replace(/#/g, ''),
                 switchBoxes()
-
             ))
             //setTime out for smoother animation of any text that changes color when the background contrast changes
         setTimeout(function() {
