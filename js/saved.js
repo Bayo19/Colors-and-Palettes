@@ -1,5 +1,5 @@
 (function() {
-
+        //toggle navigation
         const nav = document.querySelector('.more')
         const navLinks = document.querySelector('.nav-links-remove')
 

@@ -275,6 +275,7 @@
         setTimeout(setBoxTextColor, 200)
     })
 
+
     for (x of allboxp) {
         if (window.matchMedia("(min-width: 769px)").matches) {
             x.addEventListener('dblclick', copytoClipboard)
