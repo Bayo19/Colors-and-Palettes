@@ -1,0 +1,33 @@
+.pageTitle {
+    width: 100%;
+    text-align: center;
+    padding: 5% 0px;
+}
+
+.pageTitle h1 {
+    font-size: 250%;
+    padding-bottom: 30px;
+}
+
+.pageTitle h4 {
+    color: #777;
+}
+
+.shade-color {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 800px;
+}
+
+.shade-box {
+    position: relative;
+    height: 110px;
+    width: 160px;
+    margin: 0 auto
+}
+
+.shades-root {
+    padding: 0% 10% 5% 10%;
+    width: 80%;
+    display: grid;
+}
