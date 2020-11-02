@@ -43,7 +43,7 @@ const white = ['White', [{ name: 'Alabaster', hex: '#EDEAE0' }, { name: 'Alice B
 const yellow = ['Yellow', [{ name: 'Arylide Yellow', hex: '#E9D66B' }, { name: 'Aureolin', hex: '#FDEE00' }, { name: 'Chartreuse', hex: '#DFFF00' }, { name: 'Citrine', hex: '#E4D00A' }, { name: 'Flax', hex: '#EEDC82' }, { name: 'Gold', hex: '#FFD700' }, { name: 'Harvest Gold', hex: '#E6A817' }, { name: 'Jasmine', hex: '#F8DE7E' }, { name: 'Jonquil', hex: '#FACA16' }, { name: 'Maize/Corn', hex: '#FBEC5D' }, { name: 'Mikado Yellow', hex: '#FFC40C' }, { name: 'Mindaro', hex: '#E3F988' }, { name: 'Naples Yellow', hex: '#FADA5E' }, { name: 'Saffron', hex: '#F4C431' }, { name: 'National School Bus Glossy Yellow', hex: '#F5A400' }, { name: 'Stil De Grain Yellow', hex: '#FADA5E' }, { name: 'Straw', hex: '#E4D96F' }, { name: ' Wheat', hex: '#F5DEB3' }]]
 
 
-let shades = [red, orange, yellow, blue, cyan, green, black, brown, purpleViolet, magenta, pink, gray]
+let shades = [red, orange, yellow, blue, cyan, green, black, gray, brown, purpleViolet, magenta, pink]
     // magenta, purpleViolet, pink
 
 const root = document.querySelector('.shades-root')

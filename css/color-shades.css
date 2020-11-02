@@ -31,11 +31,16 @@ body {
     padding-bottom: 1px;
 }
 
+.Black {
+    padding-bottom: 10px;
+}
+
 .shade-box {
     position: relative;
     height: 90px;
     width: 190px;
-    margin: 0 auto
+    margin: 0 auto;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 .shades-root {
