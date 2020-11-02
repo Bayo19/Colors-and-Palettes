@@ -5,6 +5,10 @@
     font-size: 100%;
 }
 
+body {
+    background-color: #f6f6f6;
+}
+
 .pageTitleSaved {
     width: 100%;
     text-align: center;
