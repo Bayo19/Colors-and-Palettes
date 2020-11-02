@@ -44,7 +44,7 @@ const yellow = ['Yellow', [{ name: 'Arylide Yellow', hex: '#E9D66B' }, { name: '
 
 
 let shades = [red, orange, yellow, blue, cyan, green, black, gray, brown, purpleViolet, magenta, pink]
-    // magenta, purpleViolet, pink
+
 
 const root = document.querySelector('.shades-root')
 
