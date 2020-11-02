@@ -32,17 +32,7 @@ body {
     grid-gap: 40px;
 }
 
-@media screen and (max-width: 1000px) {
-    #saved-root {
-        padding: 0% 10% 5% 10%;
-        width: 80%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 40px;
-    }
-}
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
     #saved-root {
         padding: 10% 10% 5% 10%;
         width: 80%;
@@ -52,10 +42,11 @@ body {
     }
 }
 
-#saved-palette {
+.saved-palette {
     display: flex;
     height: 70px;
-    width: 500px;
+    /* width: 500px; */
+    width: 100%
 }
 
 .saved-palette-child-one,

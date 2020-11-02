@@ -47,22 +47,34 @@
             root.innerHTML = `${
         palettes.map(function(palette){
     
-            return `<div id="saved-palette">
-                <div class="saved-palette-child-one" style="background:${'#' + palette[0]}"><p>${palette[0]}</p></div>
-                <div class="saved-palette-child-two" style="background:${'#' + palette[1]}"><p>${palette[1]}</p></div>
-                <div class="saved-palette-child-three" style="background:${'#' + palette[2]}"><p>${palette[2]}</p></div>
-                <div class="saved-palette-child-four" style="background:${'#' + palette[3]}"><p>${palette[3]}</p></div>
-                <div class="saved-palette-child-five" style="background:${'#' + palette[4]}"><p>${palette[4]}</p></div>
+            return `<div class="saved-palette">
+                <div class="saved-palette-child-one sp" style="background:${'#' + palette[0]}"><p>${palette[0]}</p></div>
+                <div class="saved-palette-child-two sp" style="background:${'#' + palette[1]}"><p>${palette[1]}</p></div>
+                <div class="saved-palette-child-three sp" style="background:${'#' + palette[2]}"><p>${palette[2]}</p></div>
+                <div class="saved-palette-child-four sp" style="background:${'#' + palette[3]}"><p>${palette[3]}</p></div>
+                <div class="saved-palette-child-five sp" style="background:${'#' + palette[4]}"><p>${palette[4]}</p></div>
                 </div>`
             }).join('')
         }`
     }       
     
-    document.addEventListener('load', function(e){
-        if(e.target && e.target.id == 'saved-palette') {
-            console.log('hello')
+    const paletteGroup = document.querySelectorAll('.sp')
+    setTimeout(function() {
+        for (x of paletteGroup) {
+            let res = getComputedStyle(x).getPropertyValue('background-color').replace(/[a-z\(\)]/g, '').split(',')
+            let [r, g, b] = res
+            let hsp = Math.sqrt(
+                0.299 * (r * r) +
+                0.587 * (g * g) +
+                0.114 * (b * b)
+            )
+            if (hsp >= 128) {
+                x.children[0].style.color = 'black'
+            } else {
+                x.children[0].style.color = 'white'
+            }
         }
-    })
+    }, 393)
   
     // document.addEventListener('dblclick', function(e){
 
