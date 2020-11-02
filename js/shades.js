@@ -64,5 +64,3 @@ x[1].map(function(color){
 </div>`
 
 })
-
-// console.log(green[1].length)
