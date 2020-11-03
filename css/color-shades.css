@@ -91,18 +91,20 @@ body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         height: 800px;
-        padding-bottom: 450px;
+        padding-bottom: 390px;
     }
     .Black,
     .Grey {
         padding-bottom: 120px;
     }
     .Magenta {
-        padding-bottom: 200px;
+        padding-bottom: 90px;
     }
     .Pink {
         padding-bottom: 50px;
-        ;
+    }
+    .Yellow {
+        padding-bottom: 240px;
     }
 }
 
