@@ -79,6 +79,64 @@ body {
     padding: 0 0 30px 0;
 }
 
+@media screen and (max-width: 950px) {
+    .shade-box {
+        position: relative;
+        height: 80px;
+        width: 180px;
+        margin: 0 auto;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    }
+    .shade-color {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: 800px;
+        padding-bottom: 450px;
+    }
+    .Black,
+    .Grey {
+        padding-bottom: 120px;
+    }
+    .Magenta {
+        padding-bottom: 200px;
+    }
+    .Pink {
+        padding-bottom: 50px;
+        ;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .shade-box {
+        position: relative;
+        height: 80px;
+        width: 180px;
+        margin: 0 auto;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    }
+    .shade-color {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 800px;
+        padding-bottom: 950px;
+    }
+    .Yellow {
+        padding-bottom: 800px;
+    }
+    .Black {
+        padding-bottom: 400px;
+    }
+    .Grey {
+        padding-bottom: 200px;
+    }
+    .Magenta {
+        padding-bottom: 400px;
+    }
+    .Pink {
+        padding-bottom: 50px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .shade-box {
         position: relative;
@@ -108,5 +166,8 @@ body {
     }
     .Magenta {
         margin-bottom: 1450px;
+    }
+    .Pink {
+        margin-bottom: 50px;
     }
 }
