@@ -27,6 +27,7 @@
     const generate = document.querySelector('.generate')
     const save = document.querySelector('.save')
     const boxesss = document.querySelector('.boxes')
+    const pGraph = document.querySelector('.p-graph')
     console.log(boxesss.children)
 
     const hex2RGB = function(hex) {
@@ -84,7 +85,8 @@
                 textBox.style.border = `thick solid ${data.rgb.value}`,
                 rgbColor.textContent = data.rgb.value,
                 hexColor.textContent = data.hex.value.replace(/#/g, ''),
-                hslColor.textContent = data.hsl.value
+                hslColor.textContent = data.hsl.value,
+                pGraph.textContent = `Click GENERATE to find new palettes based on ${data.name.value}`
             ))
 
         fetch(`https://www.thecolorapi.com/scheme?rgb=${red},${green},${blue}&mode=monochrome`)

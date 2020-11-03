@@ -229,14 +229,14 @@ body {
 }
 
 .new-colors p {
-    /* background: linear-gradient(to left top, rgb(219, 103, 139), rgb(195, 82, 134), rgb(169, 63, 130), rgb(141, 46, 125), rgb(110, 32, 119), rgb(77, 23, 113), rgb(37, 16, 104)); */
     width: 20%;
     padding: 15px 0;
     color: black;
     text-transform: uppercase;
     box-shadow: 0 2px 2px rgba(41, 47, 56, .1), 0 4px 4px rgba(41, 47, 56, .1), 0 8px 8px rgba(41, 47, 56, .1), 0 16px 16px rgba(41, 47, 56, .1), 0 32px 32px rgba(41, 47, 56, .1);
     border-radius: 4px;
-    background: lightgrey;
+    background: #EEEEEE;
+    border: 1px solid #bbb;
 }
 
 .new-colors-p:active {
