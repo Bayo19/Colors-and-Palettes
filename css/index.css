@@ -104,6 +104,7 @@ body {
     margin-top: 15px;
     flex: auto;
     text-align: center;
+    cursor: pointer;
 }
 
 .s1,
@@ -165,6 +166,10 @@ body {
     text-align: center;
     padding: 5px;
     text-transform: uppercase;
+}
+
+.more p {
+    cursor: pointer;
 }
 
 .modal-close {
