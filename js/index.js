@@ -336,13 +336,21 @@
         if (navLinks.classList.value == 'nav-links') {
             navLinks.classList.remove('nav-links')
             navLinks.classList.add('nav-links-remove')
+            console.log(navLinks.classList.value)
 
         } else if (navLinks.classList.value == 'nav-links-remove') {
             navLinks.classList.remove('nav-links-remove')
             navLinks.classList.add('nav-links')
+            console.log(navLinks.classList.value)
+
         }
     }
+
     nav.addEventListener('click', openClose)
+
+
+
+
 
     // search for color
     const search = document.getElementById('form-for-search')
