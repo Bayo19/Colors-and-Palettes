@@ -129,6 +129,7 @@
                 a5.children[0].textContent = toHex(getComputedStyle(a5).getPropertyValue('background-color')).replace(/#/g, '')
             ))
         modalBg.classList.add('bg-active')
+        console.log(modalBg.classList.length)
         setTimeout(function() {
             for (x of sp) {
                 let res = getComputedStyle(x).getPropertyValue('background-color').replace(/[a-z\(\)]/g, '').split(',')
@@ -227,6 +228,18 @@
             save.style.color = '#777'
         }, 500)
     })
+
+    window.addEventListener('click', function(e) {
+        if (e.target == modalBg) {
+            modalBg.classList.remove('bg-active')
+            setTimeout(function() {
+                save.textContent = 'SAVE'
+                save.style.color = '#777'
+            }, 500)
+        }
+    })
+
+
 
     const shuffle = function(arr) {
         let newPos
