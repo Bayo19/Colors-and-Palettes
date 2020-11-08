@@ -16,6 +16,7 @@ body {
     width: 90px;
     height: 60px;
     margin: 0;
+    cursor: pointer;
 }
 
 .pageTitle {
@@ -180,6 +181,7 @@ body {
     font-size: 20px;
     border-radius: 3px;
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .scheme-pallete {
@@ -231,6 +233,7 @@ body {
     padding: 3% 0px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .new-colors p {

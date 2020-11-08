@@ -337,11 +337,17 @@
 
     const searchColor = function(e) {
         const hexValidate = /#[0-9A-Fa-f]{6}/g
+        const hexValidateNoHash = /[0-9A-Fa-f]{6}/g
         const text = inputSearch.value
+        const hashed = '#' + inputSearch.value
         let newRGB
         let col
         if (hexValidate.test(text)) {
             newRGB = hex2RGB(inputSearch.value)
+            col = newRGB.replace(/[a-z\(\)]/g, '').split(',')
+            modalFunction(col)
+        } else if (hexValidateNoHash.test(text)) {
+            newRGB = hex2RGB(hashed)
             col = newRGB.replace(/[a-z\(\)]/g, '').split(',')
             modalFunction(col)
         } else {
