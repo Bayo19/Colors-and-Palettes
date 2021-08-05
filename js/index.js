@@ -149,6 +149,8 @@
     }
 
     // -----------------------------------------
+
+    // Applying random colors to the boxes on main page
     const boxes = Array.from(boxAction)
 
     for (let box of boxes) {
@@ -167,6 +169,7 @@
         })
     }
 
+    //  only works locally due to clipboard api not being allowed without https
     const copytoClipboard = async function(e) {
         if (!navigator.clipboard) {
             return
@@ -304,7 +307,7 @@
         save.style.color = '#777'
     })
 
-    // 'save' palette
+    // 'save' palette to local storage
     let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
     localStorage.setItem('items', JSON.stringify(itemsArray))
 
@@ -347,10 +350,6 @@
     }
 
     nav.addEventListener('click', openClose)
-
-
-
-
 
     // search for color
     const search = document.getElementById('form-for-search')
